@@ -1,6 +1,14 @@
-﻿namespace MedVet.Domain.Entities;
+﻿using MedVet.Domain.Commons;
 
-public class Dono
+namespace MedVet.Domain.Entities;
+
+public class Dono:BaseEntity
 {
+    public string Nome { get; private set; }
     
+    public string Email { get; private set; }
+    
+    public string Telefone { get; private set; }
+    
+    public List<Pet> Pets { get; set; }
 }

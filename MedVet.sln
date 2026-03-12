@@ -2,11 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedVet.Domain", "MedVet.Domain\MedVet.Domain.csproj", "{E812D820-161D-4EF4-9A65-65F675AE7341}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{39E0BAD4-AFB7-4EF4-A906-8CA2DDA291D2}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\Documents\modelagem-checkpoint-2tdspj-csharp.pdf = ..\..\Documents\modelagem-checkpoint-2tdspj-csharp.pdf
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedVet.Api", "MedVet.Api\MedVet.Api.csproj", "{39123D03-75E0-43AA-89DD-D576EF8B04F2}"
 EndProject
 Global

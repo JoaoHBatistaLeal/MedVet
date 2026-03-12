@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedVet.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d175a314835f98d20cc4734e8276a43459e25a59")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c82d9a2f0cd88bc72b941c7b80fc6f6b682950fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedVet.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedVet.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

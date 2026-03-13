@@ -1,0 +1,15 @@
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\bin\Debug\net10.0\MedVet.Infrastructre.exe
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\bin\Debug\net10.0\MedVet.Infrastructre.deps.json
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\bin\Debug\net10.0\MedVet.Infrastructre.runtimeconfig.json
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\bin\Debug\net10.0\MedVet.Infrastructre.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\bin\Debug\net10.0\MedVet.Infrastructre.pdb
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.AssemblyInfoInputs.cache
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.AssemblyInfo.cs
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.csproj.CoreCompileInputs.cache
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.sourcelink.json
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\refint\MedVet.Infrastructre.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.pdb
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\MedVet.Infrastructre.genruntimeconfig.cache
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Infrastructre\obj\Debug\net10.0\ref\MedVet.Infrastructre.dll

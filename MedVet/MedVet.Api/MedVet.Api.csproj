@@ -11,7 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\MedVet.Application\MedVet.Application.csproj" />
       <ProjectReference Include="..\MedVet.Domain\MedVet.Domain.csproj" />
+      <ProjectReference Include="..\MedVet.Infrastructre\MedVet.Infrastructre.csproj" />
     </ItemGroup>
 
 </Project>

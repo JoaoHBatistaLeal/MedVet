@@ -1,0 +1,15 @@
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\bin\Debug\net10.0\MedVet.Application.exe
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\bin\Debug\net10.0\MedVet.Application.deps.json
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\bin\Debug\net10.0\MedVet.Application.runtimeconfig.json
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\bin\Debug\net10.0\MedVet.Application.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\bin\Debug\net10.0\MedVet.Application.pdb
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.AssemblyInfoInputs.cache
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.AssemblyInfo.cs
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.csproj.CoreCompileInputs.cache
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.sourcelink.json
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\refint\MedVet.Application.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.pdb
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\MedVet.Application.genruntimeconfig.cache
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Application\obj\Debug\net10.0\ref\MedVet.Application.dll

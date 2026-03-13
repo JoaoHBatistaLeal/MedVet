@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v10.0": {
       "MedVet.Api/1.0.0": {
         "dependencies": {
+          "MedVet.Application": "1.0.0",
           "MedVet.Domain": "1.0.0",
+          "MedVet.Infrastructre": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "10.0.4"
         },
         "runtime": {
@@ -34,9 +36,25 @@
           }
         }
       },
+      "MedVet.Application/1.0.0": {
+        "runtime": {
+          "MedVet.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MedVet.Domain/1.0.0": {
         "runtime": {
           "MedVet.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MedVet.Infrastructre/1.0.0": {
+        "runtime": {
+          "MedVet.Infrastructre.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -64,7 +82,17 @@
       "path": "microsoft.openapi/2.0.0",
       "hashPath": "microsoft.openapi.2.0.0.nupkg.sha512"
     },
+    "MedVet.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MedVet.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MedVet.Infrastructre/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

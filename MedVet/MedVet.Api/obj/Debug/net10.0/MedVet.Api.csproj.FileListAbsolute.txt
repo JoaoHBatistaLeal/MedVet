@@ -66,3 +66,5 @@ C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Api\obj\Debug\net10.0\refin
 C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Api\obj\Debug\net10.0\MedVet.Api.pdb
 C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Api\obj\Debug\net10.0\MedVet.Api.genruntimeconfig.cache
 C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Api\obj\Debug\net10.0\ref\MedVet.Api.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Api\bin\Debug\net10.0\MedVet.Domain.dll
+C:\Users\hojej\OneDrive\Desktop\medvet\MedVet\MedVet.Api\bin\Debug\net10.0\MedVet.Domain.pdb

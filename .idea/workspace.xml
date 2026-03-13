@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="26059ef9-f9d4-4db8-bdc9-d548ac75f9df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/Controllers/WeatherForecastController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/MedVet.Api.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/MedVet.Api.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/Properties/launchSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/MedVet.Api.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/MedVet.Api.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/MedVet.Api.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/MedVet.Api.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/MedVet.Api.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/MedVet.Api.staticwebassets.endpoints.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/Microsoft.OpenApi.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/bin/Debug/net10.0/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.GlobalUsings.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.csproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.csproj.Up2Date" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/MedVet.Api.sourcelink.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/apphost.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/ref/MedVet.Api.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/refint/MedVet.Api.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/rpswa.dswa.cache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/staticwebassets.build.endpoints.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/staticwebassets.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/staticwebassets.build.json.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/Debug/net10.0/swae.build.ex.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/MedVet.Api.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/MedVet.Api.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/MedVet.Api.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Api/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Commons/BaseEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Entities/Consulta.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Entities/Dono.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Entities/Medicamento.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Entities/Pet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Entities/Prescricao.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/Entities/Veterinario.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/MedVet.Domain.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/Debug/net10.0/MedVet.Domain.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/Debug/net10.0/MedVet.Domain.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/Debug/net10.0/MedVet.Domain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/Debug/net10.0/MedVet.Domain.GlobalUsings.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/Debug/net10.0/MedVet.Domain.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/MedVet.Domain.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/MedVet.Domain.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/MedVet.Domain.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.Domain/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedVet.sln" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/hojej/OneDrive/Desktop/medvet" value="3AtPEUpjVR00KsqMcEbl8odSCTa" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MedVet/MedVet.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="3AtPEUpjVR00KsqMcEbl8odSCTa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26059ef9-f9d4-4db8-bdc9-d548ac75f9df" name="Changes" comment="" />
+      <created>1773408782878</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773408782878</updated>
+      <workItem from="1773408785483" duration="90000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

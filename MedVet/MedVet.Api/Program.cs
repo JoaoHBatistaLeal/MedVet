@@ -1,3 +1,6 @@
+using MedVet.Infrastructre.Persistence; // O namespace da pasta que criámos
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<MedVetContext>(options =>
+    options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 
 var app = builder.Build();
 

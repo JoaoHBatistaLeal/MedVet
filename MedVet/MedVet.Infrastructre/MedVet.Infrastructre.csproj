@@ -7,4 +7,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+      <PackageReference Include="Oracle.EntityFrameworkCore" Version="10.23.26100" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MedVet.Domain\MedVet.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

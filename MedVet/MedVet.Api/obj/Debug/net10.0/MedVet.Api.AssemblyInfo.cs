@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedVet.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebbce9a6ca8c5ee17892f08a7a99d3b3cdf1331c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1410c0dabeda0805d4708409426c266fde3adc11")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedVet.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedVet.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

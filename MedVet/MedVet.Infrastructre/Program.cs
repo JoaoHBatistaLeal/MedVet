@@ -1,4 +1,4 @@
-﻿namespace MedVet.Infrastructre;
+﻿namespace MedVet.Infrastructure;
 
 class Program
 {

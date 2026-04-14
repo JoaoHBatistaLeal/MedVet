@@ -1,4 +1,4 @@
-using MedVet.Infrastructre.Persistence; // O namespace da pasta que criámos
+using MedVet.Infrastructure.Persistence; // O namespace da pasta que criámos
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

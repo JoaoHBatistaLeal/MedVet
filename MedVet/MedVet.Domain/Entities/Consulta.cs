@@ -14,6 +14,9 @@ public class Consulta : BaseEntity
     
     public string Observacoes { get; private set; }
     
-    
     public Prescricao Prescricoes { get; set;} 
+    
+    public Veterinario Veterinario { get; set;}
+    
+    public Pet Pet { get; private set; }
 }

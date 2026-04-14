@@ -429,7 +429,7 @@
         "runtime": {
           "lib/net8.0/Oracle.ManagedDataAccess.dll": {
             "assemblyVersion": "23.1.0.0",
-            "fileVersion": "23.1.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -568,6 +568,9 @@
         }
       },
       "MedVet.Application/1.0.0": {
+        "dependencies": {
+          "MedVet.Domain": "1.0.0"
+        },
         "runtime": {
           "MedVet.Application.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -585,8 +588,10 @@
       },
       "MedVet.Infrastructre/1.0.0": {
         "dependencies": {
+          "MedVet.Application": "1.0.0",
           "MedVet.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.5",
           "Oracle.EntityFrameworkCore": "10.23.26100"
         },
         "runtime": {

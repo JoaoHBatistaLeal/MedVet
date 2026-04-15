@@ -13,6 +13,9 @@
 
 Clínica de Medicina Veterinária
 
+### SGDB da equipa
+Oracle
+
 
 ### Entidades Modeladas
 

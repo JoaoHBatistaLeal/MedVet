@@ -1,143 +1,93 @@
-using Microsoft.EntityFrameworkCore;
 using MedVet.Application.Interfaces.Repositories;
 using MedVet.Domain.Entities;
 using MedVet.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MedVet.Infrastructure.Repositories;
 
-/// <summary>
-/// Repositório EF de Consulta.
-/// Centraliza acesso a dados da entidade <see cref="Consulta"/>.
-/// </summary>
-public class ConsultaRepository(MedVetContext context) : IConsultaRepository
+public class ConsultaRepository : IConsultaRepository
 {
-    /// <summary>
-    /// Retorna todas as consultas com seus Pets e Veterinários.
-    /// </summary>
+    private readonly MedVetContext _context;
+
+    public ConsultaRepository(MedVetContext context)
+    {
+        _context = context;
+    }
+
     public IReadOnlyCollection<Consulta> GetAll()
     {
-        return context.Consultas
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .ToList();
+        return _context.Consultas.ToList();
     }
-
-    /// <summary>
-    /// Busca consulta por Id com carregamento de Pet e Veterinário.
-    /// </summary>
-    public Consulta? GetById(int id)
+    
+    public Consulta? GetById(Guid id)
     {
-        return context.Consultas
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .FirstOrDefault(x => x.Id == id);
+        return _context.Consultas.FirstOrDefault(c => c.Id == id);
     }
 
-    /// <summary>
-    /// Adiciona uma nova consulta ao contexto.
-    /// </summary>
     public void Add(Consulta consulta)
     {
-        context.Consultas.Add(consulta);
+        _context.Consultas.Add(consulta);
     }
 
-    /// <summary>
-    /// Marca consulta como alterada no contexto.
-    /// </summary>
     public void Update(Consulta consulta)
     {
-        context.Consultas.Update(consulta);
+        _context.Consultas.Update(consulta);
     }
 
-    /// <summary>
-    /// Remove consulta do contexto.
-    /// </summary>
     public void Delete(Consulta consulta)
     {
-        context.Consultas.Remove(consulta);
+        _context.Consultas.Remove(consulta);
     }
 
-    /// <summary>
-    /// Persiste alterações pendentes no banco.
-    /// </summary>
     public void SaveChanges()
     {
-        context.SaveChanges();
+        _context.SaveChanges();
     }
 
-    /// <summary>
-    /// Busca consultas por Pet.
-    /// </summary>
     public IReadOnlyCollection<Consulta> GetByPetId(Guid idPet)
     {
-        return context.Consultas
-            .Where(x => x.IdPet == idPet)
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .OrderByDescending(x => x.DataConsulta)
+        return _context.Consultas
+            .Where(c => c.IdPet == idPet)
             .ToList();
     }
 
-    /// <summary>
-    /// Busca consultas por Veterinário.
-    /// </summary>
     public IReadOnlyCollection<Consulta> GetByVeterinarioId(Guid idVeterinario)
     {
-        return context.Consultas
-            .Where(x => x.IdVeterinario == idVeterinario)
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .OrderByDescending(x => x.DataConsulta)
+        return _context.Consultas
+            .Where(c => c.IdVeterinario == idVeterinario)
             .ToList();
     }
 
-    /// <summary>
-    /// Busca consultas por período de data.
-    /// </summary>
     public IReadOnlyCollection<Consulta> GetByDateRange(DateTime startDate, DateTime endDate)
     {
-        return context.Consultas
-            .Where(x => x.DataConsulta.Date >= startDate.Date && 
-                        x.DataConsulta.Date <= endDate.Date)
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .OrderBy(x => x.DataConsulta)
+        return _context.Consultas
+            .Where(c => c.DataConsulta >= startDate && c.DataConsulta <= endDate)
             .ToList();
     }
-
-    /// <summary>
-    /// Busca consulta por Id com carregamento da Prescrição.
-    /// </summary>
-    public Consulta? GetByIdWithPrescricao(int id)
+    public Consulta? GetByIdWithPrescricao(Guid id)
     {
-        return context.Consultas
-            .Include(x => x.Prescricoes)
-            .FirstOrDefault(x => x.Id == id);
+        return _context.Consultas
+            .Include(c => c.Prescricoes) 
+            .FirstOrDefault(c => c.Id == id);
     }
 
-    /// <summary>
-    /// Busca consulta completa (Pet, Veterinário e Prescrição com Medicamentos).
-    /// </summary>
-    public Consulta? GetByIdFull(int id)
+    public Consulta? GetByIdFull(Guid id)
     {
-        return context.Consultas
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .Include(x => x.Prescricoes)
-                .ThenInclude(p => p.Medicamento)
-            .FirstOrDefault(x => x.Id == id);
+        return _context.Consultas
+            .Include(c => c.Pet)
+            .Include(c => c.Veterinario)
+            .Include(c => c.Prescricoes)
+            .FirstOrDefault(c => c.Id == id);
     }
 
-    /// <summary>
-    /// Busca as últimas N consultas de um Pet.
-    /// </summary>
     public IReadOnlyCollection<Consulta> GetUltimasByPetId(Guid idPet, int quantidade)
     {
-        return context.Consultas
-            .Where(x => x.IdPet == idPet)
-            .Include(x => x.Pet)
-            .Include(x => x.Veterinario)
-            .OrderByDescending(x => x.DataConsulta)
+        return _context.Consultas
+            .Where(c => c.IdPet == idPet)
+            .OrderByDescending(c => c.DataConsulta)
             .Take(quantidade)
             .ToList();
     }

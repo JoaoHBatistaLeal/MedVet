@@ -8,19 +8,14 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
 {
     public void Configure(EntityTypeBuilder<Medicamento> builder)
     {
-        // Table name
         builder.ToTable("PJ_MEDICAMENTOS");
 
-        // Primary key
         builder.HasKey(m => m.Id);
 
-        // Id configuration
         builder.Property(m => m.Id)
             .HasColumnType("NUMBER(10)")
             .ValueGeneratedOnAdd();
-
-
-        // Preco (Price)
+        
         builder.Property(m => m.Preco)
             .HasColumnType("NUMBER(10,2)");
         

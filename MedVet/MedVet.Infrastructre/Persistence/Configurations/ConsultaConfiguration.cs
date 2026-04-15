@@ -8,53 +8,43 @@ public class ConsultaConfiguration : IEntityTypeConfiguration<Consulta>
 {
     public void Configure(EntityTypeBuilder<Consulta> builder)
     {
-        // Table name
         builder.ToTable("PJ_CONSULTAS");
 
-        // Primary key
         builder.HasKey(c => c.Id);
-
-        // Id configuration (GUID)
+        
         builder.Property(c => c.Id)
             .HasColumnType("RAW(16)")
             .ValueGeneratedOnAdd();
-
-        // IdPet (foreign key)
+        
         builder.Property(c => c.IdPet)
             .IsRequired()
             .HasColumnType("RAW(16)")
             .HasColumnName("ID_PET");
-
-        // IdVeterinario
+        
         builder.Property(c => c.IdVeterinario)
             .IsRequired()
             .HasColumnType("RAW(16)")
             .HasColumnName("ID_VETERINARIO");
-
-        // DataConsulta
+        
         builder.Property(c => c.DataConsulta)
             .IsRequired()
             .HasColumnType("TIMESTAMP(7)")
             .HasColumnName("DATA_CONSULTA");
-
-        // Diagnostico
+        
         builder.Property(c => c.Diagnostico)
             .IsRequired()
             .HasMaxLength(500)
             .HasColumnType("VARCHAR2(500)");
 
-        // Observacoes
         builder.Property(c => c.Observacoes)
             .HasMaxLength(1000)
             .HasColumnType("VARCHAR2(1000)");
 
-        // Relationship with Pet
         builder.HasOne(c => c.Pet)
             .WithMany(p => p.Consultas)
             .HasForeignKey(c => c.IdPet)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Indexes for better performance
         builder.HasIndex(c => c.IdPet)
             .HasDatabaseName("IX_CONSULTAS_ID_PET");
 
@@ -64,7 +54,6 @@ public class ConsultaConfiguration : IEntityTypeConfiguration<Consulta>
         builder.HasIndex(c => c.DataConsulta)
             .HasDatabaseName("IX_CONSULTAS_DATA_CONSULTA");
 
-        // Optional: Composite index for common queries
         builder.HasIndex(c => new { c.IdPet, c.DataConsulta })
             .HasDatabaseName("IX_CONSULTAS_PET_DATA");
     }

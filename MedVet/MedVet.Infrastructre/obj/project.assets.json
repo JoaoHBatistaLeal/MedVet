@@ -3040,35 +3040,42 @@
     ]
   },
   "packageFolders": {
-    "/Users/gutembergrsilva/.nuget/packages/": {}
+    "C:\\Users\\hojej\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Infrastructre/MedVet.Infrastructre.csproj",
+      "projectUniqueName": "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Infrastructre\\MedVet.Infrastructre.csproj",
       "projectName": "MedVet.Infrastructre",
-      "projectPath": "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Infrastructre/MedVet.Infrastructre.csproj",
-      "packagesPath": "/Users/gutembergrsilva/.nuget/packages/",
-      "outputPath": "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Infrastructre/obj/",
+      "projectPath": "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Infrastructre\\MedVet.Infrastructre.csproj",
+      "packagesPath": "C:\\Users\\hojej\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Infrastructre\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/gutembergrsilva/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\hojej\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Application/MedVet.Application.csproj": {
-              "projectPath": "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Application/MedVet.Application.csproj"
+            "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Application\\MedVet.Application.csproj": {
+              "projectPath": "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Application\\MedVet.Application.csproj"
             },
-            "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Domain/MedVet.Domain.csproj": {
-              "projectPath": "/Users/gutembergrsilva/Desktop/MedVet/MedVet/MedVet.Domain/MedVet.Domain.csproj"
+            "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Domain\\MedVet.Domain.csproj": {
+              "projectPath": "C:\\Users\\hojej\\OneDrive\\Desktop\\medvet\\MedVet\\MedVet.Domain\\MedVet.Domain.csproj"
             }
           }
         }
@@ -3083,7 +3090,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -3124,7 +3131,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Users\\hojej\\.dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

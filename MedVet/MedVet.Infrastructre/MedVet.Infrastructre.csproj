@@ -21,4 +21,8 @@
         <ProjectReference Include="..\MedVet.Application\MedVet.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
 </Project>

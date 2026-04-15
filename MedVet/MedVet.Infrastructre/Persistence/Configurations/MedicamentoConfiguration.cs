@@ -13,7 +13,7 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
         builder.HasKey(m => m.Id);
 
         builder.Property(m => m.Id)
-            .HasColumnType("NUMBER(10)")
+            .HasColumnType("RAW(16)")
             .ValueGeneratedOnAdd();
         
         builder.Property(m => m.Preco)
@@ -21,7 +21,7 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
         
 
         builder.HasMany(m => m.Prescricoes)
-            .WithMany(p => p.Medicamento)
+            .WithMany(p => p.Medicamentos)
             .UsingEntity<Dictionary<string, object>>(
                 "PJ_PRESCRICOES_MEDICAMENTOS",
                 right => right.HasOne<Prescricao>()

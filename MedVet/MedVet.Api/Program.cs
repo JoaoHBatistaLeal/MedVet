@@ -1,20 +1,25 @@
-using MedVet.Infrastructure.Persistence; // O namespace da pasta que criámos
+using MedVet.Application.Interfaces.Repositories;
+using MedVet.Infrastructure.Persistence; 
+using MedVet.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<MedVetContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 
+builder.Services.AddScoped<IDonoRepository, DonoRepository>();
+builder.Services.AddScoped<IPetRepository, PetRepository>();
+builder.Services.AddScoped<IVeterinarioRepository, VeterinarioRepository>();
+builder.Services.AddScoped<IConsultaRepository, ConsultaRepository>();
+builder.Services.AddScoped<IPrescricaoRepository, PrescricaoRepository>();
+builder.Services.AddScoped<IMedicamentoRepository, MedicamentoRepository>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

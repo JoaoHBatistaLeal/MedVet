@@ -13,7 +13,7 @@ public class VeterinarioConfiguration : IEntityTypeConfiguration<Veterinario>
         builder.HasKey(v => v.Id);
         
         builder.Property(v => v.Id)
-            .HasColumnType("NUMBER(10)")
+            .HasColumnType("RAW(16)")
             .ValueGeneratedOnAdd();
         
         builder.Property(v => v.Nome)

@@ -1,19 +1,9 @@
 using MedVet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Collections.Generic;
 
 namespace MedVet.Infrastructure.Persistence.Configurations;
-
-public class PrescricaoMedicamento
-{
-    public long PrescricaoId { get; set; }
-    public long MedicamentoId { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public bool Active { get; set; }
-    
-    public virtual Prescricao Prescricao { get; set; }
-    public virtual Medicamento Medicamento { get; set; }
-}
 
 public class PrescricaoConfiguration : IEntityTypeConfiguration<Prescricao> 
 {
@@ -21,9 +11,9 @@ public class PrescricaoConfiguration : IEntityTypeConfiguration<Prescricao>
     {
         builder.ToTable("PJ_PRESCRICOES");
         builder.HasKey(p => p.Id);
-
+        
         builder.Property(p => p.Id)
-            .HasColumnType("NUMBER(10)")
+            .HasColumnType("RAW(16)")
             .ValueGeneratedOnAdd();
 
         builder.Property(p => p.IdConsulta)
@@ -31,23 +21,13 @@ public class PrescricaoConfiguration : IEntityTypeConfiguration<Prescricao>
             .HasColumnType("RAW(16)")
             .HasColumnName("ID_CONSULTA");
 
-        builder.HasMany(p => p.Medicamento)
+        builder.HasMany(p => p.Medicamentos) 
             .WithMany(m => m.Prescricoes)
-            .UsingEntity<PrescricaoMedicamento>(
-                j => j.HasOne(pm => pm.Medicamento)
-                    .WithMany()
-                    .HasForeignKey(pm => pm.MedicamentoId)
-                    .OnDelete(DeleteBehavior.Restrict),
-                j => j.HasOne(pm => pm.Prescricao)
-                    .WithMany()
-                    .HasForeignKey(pm => pm.PrescricaoId)
-                    .OnDelete(DeleteBehavior.Cascade),
-                j =>
-                {
-                    j.ToTable("PJ_PRESCRICOES_MEDICAMENTOS");
-                    j.HasKey(pm => new { pm.PrescricaoId, pm.MedicamentoId });
-                    j.Property(pm => pm.CreatedAt).IsRequired().HasColumnType("TIMESTAMP");
-                });
+            .UsingEntity<Dictionary<string, object>>(
+                "PJ_PRESCRICOES_MEDICAMENTOS",
+                j => j.HasOne<Medicamento>().WithMany().HasForeignKey("IdMedicamento"),
+                j => j.HasOne<Prescricao>().WithMany().HasForeignKey("IdPrescricao")
+            );
         
         builder.HasIndex(p => p.IdConsulta)
             .IsUnique()

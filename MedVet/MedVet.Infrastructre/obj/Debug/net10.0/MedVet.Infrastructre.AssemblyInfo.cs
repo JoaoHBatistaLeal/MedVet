@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedVet.Infrastructre")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f39931945c25d19558877ce36d678b99fb002ac7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7835d9d4448432208d4d80dcf52543af1eaa8081")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedVet.Infrastructre")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedVet.Infrastructre")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

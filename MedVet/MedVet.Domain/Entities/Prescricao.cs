@@ -6,5 +6,6 @@ public class Prescricao:BaseEntity
 {
     public Guid IdConsulta { get; private set; }
     
-    public List <Medicamento> Medicamento { get; set; }
+    public List <Medicamento> Medicamentos { get; set; }
+    protected Prescricao() { }
 }

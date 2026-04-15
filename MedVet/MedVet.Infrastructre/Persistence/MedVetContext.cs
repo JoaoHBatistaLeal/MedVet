@@ -8,7 +8,7 @@ namespace MedVet.Infrastructure.Persistence
         public MedVetContext(DbContextOptions<MedVetContext> options) : base(options)
         {
         }
-
+    
         public DbSet<Consulta> Consultas { get; set; }
         public DbSet<Dono> Donos { get; set; }
         public DbSet<Medicamento> Medicamentos { get; set; }

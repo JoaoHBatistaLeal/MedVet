@@ -1,5 +1,7 @@
 # MedVet - 2TDSPJ
 
+## ⚠️‼️O PROJETO TEVE QUE MUDAR DA SDK NET10 PARA NET9 
+
 ## Integrantes do Grupo
 
 | Nome                   | RM       |

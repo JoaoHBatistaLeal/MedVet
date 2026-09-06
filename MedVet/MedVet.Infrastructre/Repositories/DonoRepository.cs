@@ -1,4 +1,4 @@
-using MedVet.Application.Interfaces.Repositories; // Importa a interface
+using MedVet.Application.Interfaces.Repositories;
 using MedVet.Domain.Entities;
 using MedVet.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;

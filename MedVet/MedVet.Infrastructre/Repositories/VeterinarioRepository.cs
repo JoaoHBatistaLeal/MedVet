@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MedVet.Application.Interfaces.Repositories;
@@ -46,7 +46,6 @@ public class VeterinarioRepository : IVeterinarioRepository
         _context.SaveChanges();
     }
 
-    // CORREÇÃO: Alterado de string para int
     public Veterinario? GetByCrmv(int crmv)
     {
         return _context.Veterinarios.FirstOrDefault(v => v.Crmv == crmv);

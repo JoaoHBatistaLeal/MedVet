@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using MedVet.Application.DTOs;
 using MedVet.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -5,18 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace MedVet.Api.Controllers;
 
 /// <summary>
-/// Endpoints para gerenciamento de medicamentos via repositorio generico.
+/// Endpoints para gerenciamento de medicamentos via repositorio generico (Contrato v1 - Deprecado).
 /// </summary>
+[ApiVersion("1.0", Deprecated = true)]
 [Route("api/[controller]")]
 [ApiController]
 [Produces("application/json")]
 public class MedicamentoController(IMedicamentoService medicamentoService, ILogger<MedicamentoController> logger) : ControllerBase
 {
     /// <summary>
-    /// Lista todos os medicamentos disponiveis.
+    /// Lista todos os medicamentos disponiveis (contrato legado v1 sem paginacao).
     /// </summary>
     /// <response code="200">Lista de medicamentos retornada com sucesso.</response>
     [HttpGet]
+    [MapToApiVersion("1.0")]
     [ProducesResponseType(typeof(IReadOnlyList<MedicamentoResponse>), StatusCodes.Status200OK)]
     public IActionResult GetAll()
     {

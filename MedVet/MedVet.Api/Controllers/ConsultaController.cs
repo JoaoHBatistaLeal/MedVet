@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using MedVet.Application.DTOs;
 using MedVet.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ namespace MedVet.Api.Controllers;
 /// <summary>
 /// Endpoints para gerenciamento de consultas veterinarias.
 /// </summary>
+[ApiVersionNeutral]
 [Route("api/[controller]")]
 [ApiController]
 [Produces("application/json")]

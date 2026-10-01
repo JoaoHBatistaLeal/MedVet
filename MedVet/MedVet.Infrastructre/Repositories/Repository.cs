@@ -15,6 +15,19 @@ public class Repository<T>(MedVetContext context) : IRepository<T> where T : Bas
         return _set.AsNoTracking().ToList();
     }
 
+    public (IReadOnlyList<T> Items, int Total) GetPaged(int pageNumber, int pageSize)
+    {
+        var query = _set.AsNoTracking();
+        var totalCount = query.Count();
+        var items = query
+            .OrderBy(x => x.CreatedAt)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return (items, totalCount);
+    }
+
     public T? GetById(Guid id)
     {
         return _set.Find(id);

@@ -12,6 +12,12 @@ public sealed class MedicamentoService(IRepository<Medicamento> medicamentoRepos
         return medicamentoRepository.GetAll().Select(MedicamentoResponse.FromDomain).ToList();
     }
 
+    public (IReadOnlyList<MedicamentoResponse> Items, int Total) GetPaged(int pageNumber, int pageSize)
+    {
+        var (items, total) = medicamentoRepository.GetPaged(pageNumber, pageSize);
+        return (items.Select(MedicamentoResponse.FromDomain).ToList(), total);
+    }
+
     public MedicamentoResponse? GetById(Guid id)
     {
         var medicamento = medicamentoRepository.GetById(id);

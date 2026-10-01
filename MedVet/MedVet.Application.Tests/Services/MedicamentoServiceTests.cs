@@ -40,4 +40,23 @@ public class MedicamentoServiceTests
         Assert.Null(result);
         _medicamentoRepository.Verify(r => r.GetById(id), Times.Once);
     }
+
+    [Fact]
+    public void GetPaged_ComParametrosValidos_DeveChamarRepositorioGenericoERetornarItensETotal()
+    {
+        var medicamentos = new List<Medicamento>
+        {
+            new("Amoxicilina", "VetCare", "Comprimido", 45.0),
+            new("Dipirona", "VetCare", "Gotas", 20.0)
+        };
+        _medicamentoRepository.Setup(r => r.GetPaged(1, 10)).Returns((medicamentos, 2));
+
+        var (items, total) = _medicamentoService.GetPaged(1, 10);
+
+        Assert.Equal(2, total);
+        Assert.Equal(2, items.Count);
+        Assert.Equal("Amoxicilina", items[0].NomeMedicamento);
+        Assert.Equal("Dipirona", items[1].NomeMedicamento);
+        _medicamentoRepository.Verify(r => r.GetPaged(1, 10), Times.Once);
+    }
 }

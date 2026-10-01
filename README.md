@@ -30,7 +30,7 @@ Clinica de Medicina Veterinaria. O sistema gerencia o fluxo de atendimento da cl
 ## Como Executar a API
 
 ### Pre-requisitos
-- .NET 9 SDK instalado
+- .NET 9 SDK (ou superior) instalado
 
 ### Executando a API
 Acesse a pasta da solucao e execute o projeto API:
@@ -44,12 +44,101 @@ A API iniciara escutando por padrao em:
 - HTTP: `http://localhost:5033`
 - HTTPS: `https://localhost:7139`
 
-### Swagger / OpenAPI
-Com a aplicacao em modo de desenvolvimento, a interface do Swagger esta disponivel na raiz e no endpoint dedicado:
-- `http://localhost:5033/`
-- `http://localhost:5033/swagger`
+### URLs Principais
+- **Swagger UI:** `http://localhost:5033/` ou `http://localhost:5033/swagger` (com alternância entre as versões `v1.0` e `v2.0` no topo).
+- **Health Checks:** `http://localhost:5033/health`
+- **Listagem v1 (Legada - Deprecada):** `http://localhost:5033/api/medicamento?api-version=1.0`
+- **Listagem v2 (Atual - Paginada):** `http://localhost:5033/api/medicamento`
 
-Todos os endpoints estao documentados com metadados OpenAPI, codigos de resposta HTTP (`ProducesResponseType`) e comentarios XML refletidos diretamente na UI.
+---
+
+## Versionamento da API (CP5)
+
+O recurso **Medicamento** foi escolhido para demonstrar a convivência de dois contratos de API sem quebra de retrocompatibilidade:
+
+- **Versão 1.0 (Deprecada):** Mantém o contrato legado do CP3, devolvendo o array direto de medicamentos (`IReadOnlyList<MedicamentoResponse>`). Está anotada com `[ApiVersion("1.0", Deprecated = true)]` e envia o header de resposta `api-deprecated-versions: 1.0`.
+- **Versão 2.0 (Atual / Padrão):** Introduz a listagem paginada em formato de envelope com metadados (`PagedResponse<MedicamentoResponse>`). Anotada com `[ApiVersion("2.0")]` e envia o header `api-supported-versions: 2.0`.
+- **Recursos Neutros:** Os demais controllers (`PetController`, `DonoController`, `VeterinarioController`, `ConsultaController`) foram marcados com `[ApiVersionNeutral]`, permanecendo acessíveis em ambas as versões.
+
+### Como o Cliente Escolhe a Versão
+
+A API combina múltiplos leitores (`ApiVersionReader.Combine`), suportando as três formas:
+
+1. **Via Query String:**
+   ```http
+   GET /api/medicamento?api-version=1.0
+   ```
+2. **Via Header HTTP:**
+   ```http
+   GET /api/medicamento
+   X-Api-Version: 1.0
+   ```
+3. **Por Omissão (Padrão):**
+   ```http
+   GET /api/medicamento
+   ```
+   Quando nenhuma versão é informada, o sistema assume automaticamente a versão **2.0** (`AssumeDefaultVersionWhenUnspecified = true`).
+
+---
+
+## Paginação na Versão 2 (CP5)
+
+Na versão 2.0, o endpoint `GET /api/medicamento` deixa de retornar todos os registros e passa a paginar a consulta **diretamente no banco de dados**, utilizando `Count`, ordenação estável (`OrderBy(x => x.CreatedAt)`), `Skip` e `Take` sobre o `IQueryable` no repositório genérico.
+
+### Parâmetros de Consulta (`PaginationQuery`)
+| Parâmetro | Tipo | Padrão | Regra de Validação |
+|---|---|---|---|
+| `page` | Inteiro | `1` | Deve ser maior ou igual a 1 (`page >= 1`) |
+| `pageSize` | Inteiro | `20` | Deve estar entre 1 e 100 (`1 <= pageSize <= 100`) |
+
+- **Validação de Erro:** Se `page < 1` ou `pageSize` for menor que 1 ou maior que 100, a API responde **`400 Bad Request`** com `ProblemDetails` detalhando a falha.
+- **Página Além do Total:** Retorna **`200 OK`** com `items: []` (não é erro 404).
+
+### Envelope de Resposta (`PagedResponse<T>`)
+```json
+{
+  "items": [
+    {
+      "id": "ae6885bd-7138-4722-ac93-80cedf925028",
+      "nomeMedicamento": "Amoxicilina 500mg",
+      "marca": "VetPharma",
+      "modoDeUso": "1 comprimido ao dia",
+      "preco": 45.5
+    }
+  ],
+  "page": 1,
+  "pageSize": 20,
+  "totalItems": 1,
+  "totalPages": 1,
+  "hasPrevious": false,
+  "hasNext": false
+}
+```
+
+---
+
+## Rate Limiting (CP5)
+
+Para proteger a API contra sobrecargas e ataques de negação de serviço, foi configurado o middleware nativo `Microsoft.AspNetCore.RateLimiting`:
+
+- **Algoritmo:** Janela Fixa (`FixedWindowRateLimiter`).
+- **Endpoint Limitado:** `POST /api/medicamento` (decorado com `[EnableRateLimiting("fixed")]`).
+- **Política ("fixed"):**
+  - **PermitLimit:** 10 requisições permitidas.
+  - **Window:** Janela de 1 minuto (`TimeSpan.FromMinutes(1)`).
+- **Comportamento ao Estourar o Limite (11ª requisição):**
+  - Status HTTP **429 Too Many Requests**.
+  - Cabeçalho HTTP **`Retry-After: 60`** informando os segundos necessários para nova tentativa.
+  - Corpo JSON RFC 6585 com detalhes do erro:
+    ```json
+    {
+      "type": "https://tools.ietf.org/html/rfc6585#section-4",
+      "title": "Too Many Requests",
+      "status": 429,
+      "detail": "Limite de requisicoes excedido. Tente novamente mais tarde."
+    }
+    ```
+- **Isenção do Health Check:** O endpoint `GET /health` foi explicitamente desvinculado do rate limit (`.DisableRateLimiting()`), garantindo que probes de orquestradores e monitoramentos continuem recebendo status **200 OK** mesmo sob rajadas de tráfego.
 
 ---
 
@@ -68,43 +157,12 @@ O retorno e estruturado no formato JSON padronizado via `HealthCheckResponseWrit
 - **Status 200 OK:** Quando todos os checks essenciais estao operacionais (`Healthy`).
 - **Status 503 Service Unavailable:** Quando qualquer dependencia critica falha (`Unhealthy`).
 
-Exemplo de resposta:
-```json
-{
-  "status": "Healthy",
-  "duration": "00:00:00.7621556",
-  "checks": [
-    {
-      "name": "self",
-      "status": "Healthy",
-      "description": "Servico da API ativo e operacional.",
-      "duration": "00:00:00.0008198",
-      "error": null
-    },
-    {
-      "name": "database",
-      "status": "Healthy",
-      "description": "Conexao com o banco de dados estabelecida com sucesso.",
-      "duration": "00:00:00.0191409",
-      "error": null
-    },
-    {
-      "name": "fiap",
-      "status": "Healthy",
-      "description": "Conectividade externa com portal FIAP verificada.",
-      "duration": "00:00:00.7557943",
-      "error": null
-    }
-  ]
-}
-```
-
 ---
 
 ## Observabilidade e Logs Estruturados
 
 A aplicacao utiliza `ILogger<T>` com logs estruturados e propriedades nomeadas correlacionadas por `traceId` (`HttpContext.TraceIdentifier`):
-- Fluxos de escrita (como cadastro de Dono e Pet) registram inicio e conclusao com parametros semanticos (`NomeDono`, `PetId`, `TraceId`).
+- Fluxos de escrita registram inicio e conclusao com parametros semanticos (`NomeMedicamento`, `Id`, `TraceId`).
 - Falhas e excecoes sao capturadas no `GlobalExceptionHandler` e registradas em nivel `Error` contendo o mesmo identificador de correlacao `TraceId`.
 
 ---
@@ -113,10 +171,10 @@ A aplicacao utiliza `ILogger<T>` com logs estruturados e propriedades nomeadas c
 
 Para padronizar o acesso a dados e desacoplar a camada de aplicacao da infraestrutura:
 - **Contrato:** `IRepository<T>` em `MedVet.Application/Interfaces/Repositories/IRepository.cs`, restrito a entidades que derivam de `BaseEntity`.
-  - Operacoes: `GetAll()`, `GetById(id)`, `Add(entity)`, `Delete(id)`, `ExistsById(id)`.
+  - Operacoes: `GetAll()`, `GetPaged(pageNumber, pageSize)`, `GetById(id)`, `Add(entity)`, `Delete(id)`, `ExistsById(id)`.
 - **Implementacao EF Core:** `Repository<T>` em `MedVet.Infrastructre/Repositories/Repository.cs`.
 - **Registro na DI:** `services.AddScoped(typeof(IRepository<>), typeof(Repository<>));`.
-- **Uso no Dominio:** O servico `MedicamentoService` consome diretamente `IRepository<Medicamento>`, demonstrando a utilizacao consistente do repositorio generico no fluxo da aplicacao.
+- **Uso no Dominio:** O servico `MedicamentoService` consome diretamente `IRepository<Medicamento>`, utilizando tanto o CRUD tradicional quanto a consulta paginada `GetPaged`.
 
 ---
 
@@ -136,26 +194,23 @@ Implementado com `IExceptionHandler` e registrado via `AddExceptionHandler<Globa
 | `UnauthorizedAccessException` | 401 Unauthorized | Nao autorizado | Acesso nao autorizado ao recurso |
 | Excecoes nao mapeadas | 500 Internal Server Error | Erro interno do servidor | Mensagem generica sem vazar stack trace em producao |
 
-Em ambiente de desenvolvimento (`Development`), o `traceId` e adicionado automaticamente ao dicionario `Extensions` do `ProblemDetails` para facilitar o rastreamento.
-
 ---
 
 ## Testes Automatizados (xUnit + Moq)
 
-A solucao conta com suites de testes automatizados organizados de acordo com a piramide de testes:
+A solucao conta com 35 testes automatizados organizados de acordo com a piramide de testes:
 
 1. **`MedVet.Domain.Tests` (sem mock):**
    - Testa diretamente regras de negocio e invariantes das entidades de dominio (`Medicamento`, `Dono`, `Pet`).
-   - Utiliza padrao AAA explcito.
-   - Contem testes de caminho feliz (`[Fact]`) e validacao de condicoes de erro (`[Theory]` + `[InlineData]`) garantindo que `DomainException` e lancada em dados invalidos.
+   - Contem testes de caminho feliz (`[Fact]`) e validacao de condicoes de erro (`[Theory]` + `[InlineData]`).
 2. **`MedVet.Application.Tests` (com mock via Moq):**
    - Testa servicos da aplicacao (`PetService`, `MedicamentoService`).
-   - Moca interfaces de repositorio (`IPetRepository`, `IDonoRepository`, `IRepository<Medicamento>`).
-   - Valida cenarios de erro sem persistencia (`Times.Never`) e cenarios de sucesso persistindo uma vez (`Times.Once`).
+   - Valida regras de paginacao (`PaginationQueryTests`) com `[Theory]` e `[Fact]`.
+   - Moca interfaces de repositorio (`IRepository<Medicamento>`, `IPetRepository`, `IDonoRepository`), testando cenarios felizes (`Times.Once`) e de erro sem persistencia (`Times.Never`).
 
 ### Como Rodar os Testes
 
-Na pasta da solucao:
+Na pasta raiz da solucao:
 
 ```bash
 dotnet test MedVet/MedVet.sln
@@ -165,8 +220,15 @@ Todos os testes devem executar e passar com 100% de aproveitamento.
 
 ---
 
-## Documentos (`/docs`)
+## Documentos e Evidencias (`/docs`)
 
-- `docs/med-vet-models.pdf`: Modelagem do banco de dados MedVet (CP1/CP2).
-- `docs/evidencias health unhealthy.pdf`: Evidencias de teste dos endpoints de Health Check (cenarios Healthy 200 OK e Unhealthy 503 Service Unavailable).
-
+- **Prints e Capturas do CP5 (`docs/cp5/`):**
+  - `docs/cp5/v2-api.jpeg`: Captura da requisição `GET /api/medicamento` demonstrando o contrato da versão 2.0 em formato de envelope com metadados de paginação (`items`, `page`, `pageSize`, `totalItems`, `totalPages`, `hasPrevious`, `hasNext`).
+  - `docs/cp5/deprecated-api-version.jpeg`: Captura da requisição na versão legada 1.0 (`GET /api/medicamento?api-version=1.0`) retornando o array plano e o cabeçalho `api-deprecated-versions: 1.0`.
+  - `docs/cp5/erro400paginacao.jpeg`: Captura da validação de regras de paginação retornando status `400 Bad Request` com ProblemDetails para parâmetros inválidos (`page < 1` ou `pageSize > 100`).
+  - `docs/cp5/429tomanyrequests.jpeg`: Captura do disparo do Rate Limiting no `POST /api/medicamento` ao estourar o limite de 10 requisições/minuto, respondendo `429 Too Many Requests` com cabeçalho `Retry-After: 60`.
+- **Relatório de Execução do CP5:**
+  - `docs/cp5-evidencias.md`: Documentação técnica consolidada contendo payloads JSON completos, cabeçalhos de resposta HTTP, testes de isolamento do Health Check e sumário de testes unitários.
+- **Entregas Anteriores:**
+  - `docs/med-vet-models.pdf`: Modelagem do banco de dados relacional MedVet (CP1/CP2).
+  - `docs/evidencias health unhealthy.pdf`: Evidencias de teste dos endpoints de Health Check (CP4).
